@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_clean_architecture/features/daily_news/presentation/bloc/article/remote/remote_article_bloc.dart';
 import 'package:news_clean_architecture/features/daily_news/presentation/bloc/article/remote/remote_article_state.dart';
+import 'package:news_clean_architecture/features/daily_news/presentation/widgets/article_widget.dart';
 
 class DailyNewsPage extends StatelessWidget {
   const DailyNewsPage({super.key});
@@ -24,7 +25,9 @@ class DailyNewsPage extends StatelessWidget {
       if (state is RemoteArticlesDone) {
         return ListView.builder(
           itemCount: state.articles!.length,
-          itemBuilder: (context, index) => ListTile(title: Text('$index')),
+          itemBuilder:
+              (context, index) =>
+                  ArticleWidget(article: state.articles![index]),
         );
       }
       return SizedBox();

@@ -11,9 +11,9 @@ abstract class NewsApiService {
   factory NewsApiService(Dio dio) = _NewsApiService;
 
   @GET('/top-headlines')
-  Future<HttpResponse<List<ArticleModel>>> getNewsArticles({
-    @Query('apiKey') required String? apiKey,
-    @Query('country') required String? country,
-    @Query('category') required String? category,
+  Future<HttpResponse<ArticleResponseModel>> getNewsArticles({
+    @Query('apiKey') String? apiKey,
+    @Query('country') String? country,
+    @Query('category') String? category,
   });
 }

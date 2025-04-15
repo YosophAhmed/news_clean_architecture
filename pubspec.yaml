@@ -43,6 +43,8 @@ dependencies:
   floor:
   get_it:
   dio:
+  json_annotation:
+
 
 dev_dependencies:
   flutter_test:
