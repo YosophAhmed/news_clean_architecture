@@ -33,7 +33,29 @@ class ArticleWidget extends StatelessWidget {
             ),
           ),
         ),
+    errorWidget: (context, url, error) => _fallbackImage(context),
+    placeholder:  (context, url) => Center(child: CircularProgressIndicator()),
   );
+
+  Widget _fallbackImage(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(end: 14),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: Container(
+          width: MediaQuery.sizeOf(context).width / 3,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.grey[300],
+            image: const DecorationImage(
+              image: AssetImage('assets/images/Placeholder_view_vector.svg.png'), // your local asset image
+              fit: BoxFit.fill,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
   Widget _buildTitleAndDescription() => Expanded(
     child: Padding(

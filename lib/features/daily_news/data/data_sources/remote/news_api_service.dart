@@ -14,6 +14,6 @@ abstract class NewsApiService {
   Future<HttpResponse<ArticleResponseModel>> getNewsArticles({
     @Query('apiKey') String? apiKey,
     @Query('country') String? country,
-    @Query('category') String? category,
+    // @Query('category') String? category,
   });
 }
